@@ -16,10 +16,14 @@ model User {
   email             String    @unique
   name              String?
   imageUrl          String?
-  role              UserRole  @default(UNASSIGNED) // UNASSIGNED, PATIENT, DOCTOR, ADMIN
+  role              UserRole  @default(UNASSIGNED) // UNASSIGNED, PATIENT, DOCTOR, ADMIN, ORGANIZATION, VOLUNTEER
   createdAt         DateTime  @default(now())
   updatedAt         DateTime  @updatedAt
   
+  // Verification (shared for Doctors & Orgs)
+  verificationStatus VerificationStatus? @default(PENDING)
+
+
   // Patient-specific fields
   credits           Int       @default(2) // Accumulated credit balance
   
@@ -28,7 +32,6 @@ model User {
   experience        Int?      // Years of experience
   credentialUrl     String?   // Document URL
   description       String?   @db.Text
-  verificationStatus VerificationStatus?  @default(PENDING)
   
   // Relations
   patientAppointments Appointment[] @relation("PatientAppointments")
@@ -36,6 +39,22 @@ model User {
   availabilities      Availability[]
   transactions        CreditTransaction[]
   payouts             Payout[]
+
+  // Organization-specific fields
+  orgName            String?        // Registered organization name
+  orgMission            String?        @db.Text  // Organization's mission statement
+  orgContactNumber      String?        // Primary contact
+  orgAddress            String?        // HQ / Office location
+
+  //Volunteer-specific fields
+  volSkills             String?       // e.g. First Aid, Teaching, Fundraising
+  volLanguages          String?       // Languages spoken
+  volExperienceLevel    String?       // e.g. Beginner, Intermediate, Expert
+
+  // Organization ↔ Volunteers relation
+  volunteers     User[] @relation("OrganizationVolunteers")
+  organization   User?  @relation("OrganizationVolunteers", fields: [organizationId], references: [id])
+  organizationId String?
 }
 
 enum UserRole {
@@ -43,6 +62,8 @@ enum UserRole {
   PATIENT
   DOCTOR
   ADMIN
+  ORGANIZATION
+  VOLUNTEER
 }
 
 enum VerificationStatus {

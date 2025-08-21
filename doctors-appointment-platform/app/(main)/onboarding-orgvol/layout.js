@@ -1,31 +1,27 @@
-import { getCurrentUser } from "@/actions/onboarding";
+// app/(main)/onboarding-orgvol/layout.js
 import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/actions/onboardingOrgVol";
 
 export const metadata = {
   title: "Onboarding - Care-Connect",
   description: "Complete your profile to get started with Care-Connect",
 };
 
-export default async function OnboardingLayout({ children }) {
-  // Get complete user profile
+export default async function OrgVolLayout({ children }) {
+  // Get current logged-in user
   const user = await getCurrentUser();
-  // Redirect users who have already completed onboarding
+  // Redirect users who already have a role
   if (user) {
     if (user.role === "VOLUNTEER") {
       redirect("/dashboard"); // redirect volunteers
     } else if (user.role === "ORGANIZATION") {
       redirect("/dashboard"); // redirect organizations
-    } else if (user.role === "PATIENT") {
-      redirect("/doctors");
-    } else if (user.role === "DOCTOR") {
-      // Check verification status for doctors
-      if (user.verificationStatus === "VERIFIED") {
-        redirect("/doctor");
-      } else {
-        redirect("/doctor/verification");
-      }
     } else if (user.role === "ADMIN") {
       redirect("/admin");
+    } else if (user.role === "DOCTOR") {
+      redirect("/doctor");
+    } else if (user.role === "PATIENT") {
+      redirect("/doctors");
     }
   }
 

@@ -46,18 +46,18 @@ export function AppointmentForm({ doctorId, slot, onBack, onComplete }) {
       <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20 space-y-3">
         <div className="flex items-center">
           <Calendar className="h-5 w-5 text-emerald-400 mr-2" />
-          <span className="text-white font-medium">
+          <span className="text-black font-medium">
             {format(new Date(slot.startTime), "EEEE, MMMM d, yyyy")}
           </span>
         </div>
         <div className="flex items-center">
           <Clock className="h-5 w-5 text-emerald-400 mr-2" />
-          <span className="text-white">{slot.formatted}</span>
+          <span className="text-black">{slot.formatted}</span>
         </div>
         <div className="flex items-center">
           <CreditCard className="h-5 w-5 text-emerald-400 mr-2" />
           <span className="text-muted-foreground">
-            Cost: <span className="text-white font-medium">2 credits</span>
+            Cost: <span className="text-black font-medium">2 credits</span>
           </span>
         </div>
       </div>

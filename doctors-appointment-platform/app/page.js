@@ -21,7 +21,7 @@ export default function Home() {
               >
                 Healthcare made simple with CareConnect
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
                 Connect with doctors <br />
                 <span className="gradient-title">anytime, anywhere</span>
               </h1>
@@ -33,7 +33,7 @@ export default function Home() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-emerald-600 text-white hover:bg-emerald-700"
+                  className="bg-emerald-600 text-black hover:bg-emerald-700"
                 >
                   <Link href="/onboarding">
                     Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -63,11 +63,61 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Organisation Section */}
+      <section className="relative overflow-hidden py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black leading-tight">
+                Connect with NGOs <br />
+                <span className="gradient-title">anytime, anywhere</span>
+              </h1>
+              <p className="text-muted-foreground text-lg md:text-xl max-w-md">
+                Look for volunteering work, participate in their social events,
+                and keep track of your volunteering journey all in one secure
+                platform.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-emerald-600 text-black hover:bg-emerald-700"
+                >
+                  <Link href="/onboarding-orgvol">
+                    Get Started <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-emerald-700/30 hover:bg-muted/80"
+                >
+                  <Link href="/dashboard">
+                    Find yourself some volunteering work
+                  </Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
+              <Image
+                src="/banner3.jpg"
+                alt="NGO volunteering"
+                fill
+                priority
+                className="object-cover md:pt-14 rounded-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               How It Works
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -85,7 +135,7 @@ export default function Home() {
                   <div className="bg-emerald-900/20 p-3 rounded-lg w-fit mb-4">
                     {feature.icon}
                   </div>
-                  <CardTitle className="text-xl font-semibold text-white">
+                  <CardTitle className="text-xl font-semibold text-black">
                     {feature.title}
                   </CardTitle>
                 </CardHeader>
@@ -108,7 +158,7 @@ export default function Home() {
             >
               Affordable Healthcare
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               Consultation Packages
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -124,7 +174,7 @@ export default function Home() {
             {/* Description */}
             <Card className="mt-12 bg-muted/20 border-emerald-900/30">
               <CardHeader>
-                <CardTitle className="text-xl font-semibold text-white flex items-center">
+                <CardTitle className="text-xl font-semibold text-black flex items-center">
                   <Stethoscope className="h-5 w-5 mr-2 text-emerald-400" />
                   How Our Credit System Works
                 </CardTitle>
@@ -172,7 +222,7 @@ export default function Home() {
             >
               Success Stories
             </Badge>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
               What Our Users Say
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -194,7 +244,7 @@ export default function Home() {
                       </span>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white">
+                      <h4 className="font-semibold text-black">
                         {testimonial.name}
                       </h4>
                       <p className="text-sm text-muted-foreground">
@@ -218,7 +268,7 @@ export default function Home() {
           <Card className="bg-gradient-to-r from-emerald-900/30 to-emerald-950/20 border-emerald-800/20">
             <CardContent className="p-8 md:p-12 lg:p-16 relative overflow-hidden">
               <div className="max-w-2xl relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
                   Ready to take control of your healthcare?
                 </h2>
                 <p className="text-lg text-muted-foreground mb-8">
@@ -230,7 +280,7 @@ export default function Home() {
                   <Button
                     asChild
                     size="lg"
-                    className="bg-emerald-600 text-white hover:bg-emerald-700"
+                    className="bg-emerald-600 text-black hover:bg-emerald-700"
                   >
                     <Link href="/sign-up">Sign Up Now</Link>
                   </Button>

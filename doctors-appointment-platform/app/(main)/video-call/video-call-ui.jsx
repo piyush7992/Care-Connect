@@ -179,7 +179,7 @@ export default function VideoCall({ sessionId, token }) {
   if (!sessionId || !token || !appId) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">
+        <h1 className="text-3xl font-bold text-black mb-4">
           Invalid Video Call
         </h1>
         <p className="text-muted-foreground mb-6">
@@ -208,7 +208,7 @@ export default function VideoCall({ sessionId, token }) {
 
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-white mb-2">
+          <h1 className="text-3xl font-bold text-black mb-2">
             Video Consultation
           </h1>
           <p className="text-muted-foreground">
@@ -223,7 +223,7 @@ export default function VideoCall({ sessionId, token }) {
         {isLoading && !scriptLoaded ? (
           <div className="flex flex-col items-center justify-center py-12">
             <Loader2 className="h-12 w-12 text-emerald-400 animate-spin mb-4" />
-            <p className="text-white text-lg">
+            <p className="text-black text-lg">
               Loading video call components...
             </p>
           </div>

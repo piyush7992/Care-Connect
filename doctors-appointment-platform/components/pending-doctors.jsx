@@ -67,7 +67,7 @@ export function PendingDoctors({ doctors }) {
     <div>
       <Card className="bg-muted/20 border-emerald-900/20">
         <CardHeader>
-          <CardTitle className="text-xl font-bold text-white">
+          <CardTitle className="text-xl font-bold text-black">
             Pending Doctor Verifications
           </CardTitle>
           <CardDescription>
@@ -93,7 +93,7 @@ export function PendingDoctors({ doctors }) {
                           <User className="h-5 w-5 text-emerald-400" />
                         </div>
                         <div>
-                          <h3 className="font-medium text-white">
+                          <h3 className="font-medium text-black">
                             {doctor.name}
                           </h3>
                           <p className="text-sm text-muted-foreground">
@@ -132,7 +132,7 @@ export function PendingDoctors({ doctors }) {
         <Dialog open={!!selectedDoctor} onOpenChange={handleCloseDialog}>
           <DialogContent className="max-w-3xl">
             <DialogHeader>
-              <DialogTitle className="text-xl font-bold text-white">
+              <DialogTitle className="text-xl font-bold text-black">
                 Doctor Verification Details
               </DialogTitle>
               <DialogDescription>
@@ -148,7 +148,7 @@ export function PendingDoctors({ doctors }) {
                   <h4 className="text-sm font-medium text-muted-foreground">
                     Full Name
                   </h4>
-                  <p className="text-base font-medium text-white">
+                  <p className="text-base font-medium text-black">
                     {selectedDoctor.name}
                   </p>
                 </div>
@@ -156,7 +156,7 @@ export function PendingDoctors({ doctors }) {
                   <h4 className="text-sm font-medium text-muted-foreground">
                     Email
                   </h4>
-                  <p className="text-base font-medium text-white">
+                  <p className="text-base font-medium text-black">
                     {selectedDoctor.email}
                   </p>
                 </div>
@@ -164,7 +164,7 @@ export function PendingDoctors({ doctors }) {
                   <h4 className="text-sm font-medium text-muted-foreground">
                     Application Date
                   </h4>
-                  <p className="text-base font-medium text-white">
+                  <p className="text-base font-medium text-black">
                     {format(new Date(selectedDoctor.createdAt), "PPP")}
                   </p>
                 </div>
@@ -176,7 +176,7 @@ export function PendingDoctors({ doctors }) {
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Medal className="h-5 w-5 text-emerald-400" />
-                  <h3 className="text-white font-medium">
+                  <h3 className="text-black font-medium">
                     Professional Information
                   </h3>
                 </div>
@@ -186,14 +186,14 @@ export function PendingDoctors({ doctors }) {
                     <h4 className="text-sm font-medium text-muted-foreground">
                       Specialty
                     </h4>
-                    <p className="text-white">{selectedDoctor.specialty}</p>
+                    <p className="text-black">{selectedDoctor.specialty}</p>
                   </div>
 
                   <div className="space-y-1">
                     <h4 className="text-sm font-medium text-muted-foreground">
                       Years of Experience
                     </h4>
-                    <p className="text-white">
+                    <p className="text-black">
                       {selectedDoctor.experience} years
                     </p>
                   </div>
@@ -223,7 +223,7 @@ export function PendingDoctors({ doctors }) {
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <FileText className="h-5 w-5 text-emerald-400" />
-                  <h3 className="text-white font-medium">
+                  <h3 className="text-black font-medium">
                     Service Description
                   </h3>
                 </div>

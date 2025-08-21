@@ -9,7 +9,7 @@ export default async function DoctorsPage() {
       <DoctorSugggestor />
       <Link href="/ai-assisstant"> Explore our new feature: AI Assistant </Link>
       <div className="flex flex-col items-center justify-center mb-8 text-center">
-        <h1 className="text-3xl font-bold text-white mb-2">Find Your Doctor</h1>
+        <h1 className="text-3xl font-bold text-black mb-2">Find Your Doctor</h1>
         <p className="text-muted-foreground text-lg">
           Browse by specialty or view all available healthcare providers
         </p>
@@ -22,7 +22,7 @@ export default async function DoctorsPage() {
                 <div className="w-12 h-12 rounded-full bg-emerald-900/20 flex items-center justify-center mb-4">
                   <div className="text-emerald-400">{specialty.icon}</div>
                 </div>
-                <h3 className="font-medium text-white">{specialty.name}</h3>
+                <h3 className="font-medium text-black">{specialty.name}</h3>
               </CardContent>
             </Card>
           </Link>

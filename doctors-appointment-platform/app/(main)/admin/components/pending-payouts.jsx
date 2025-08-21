@@ -79,7 +79,7 @@ export function PendingPayouts({ payouts }) {
     <div>
       <Card className="bg-muted/20 border-emerald-900/20">
         <CardHeader>
-          <CardTitle className="text-xl font-bold text-white">
+          <CardTitle className="text-xl font-bold text-black">
             Pending Payouts
           </CardTitle>
           <CardDescription>
@@ -105,7 +105,7 @@ export function PendingPayouts({ payouts }) {
                           <User className="h-5 w-5 text-emerald-400" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-medium text-white">
+                          <h3 className="font-medium text-black">
                             Dr. {payout.doctor.name}
                           </h3>
                           <p className="text-sm text-muted-foreground">
@@ -175,7 +175,7 @@ export function PendingPayouts({ payouts }) {
         <Dialog open={!!selectedPayout} onOpenChange={closeDialogs}>
           <DialogContent className="max-w-2xl">
             <DialogHeader>
-              <DialogTitle className="text-xl font-bold text-white">
+              <DialogTitle className="text-xl font-bold text-black">
                 Payout Request Details
               </DialogTitle>
               <DialogDescription>
@@ -188,14 +188,14 @@ export function PendingPayouts({ payouts }) {
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Stethoscope className="h-5 w-5 text-emerald-400" />
-                  <h3 className="text-white font-medium">Doctor Information</h3>
+                  <h3 className="text-black font-medium">Doctor Information</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
                       Name
                     </p>
-                    <p className="text-white">
+                    <p className="text-black">
                       Dr. {selectedPayout.doctor.name}
                     </p>
                   </div>
@@ -203,13 +203,13 @@ export function PendingPayouts({ payouts }) {
                     <p className="text-sm font-medium text-muted-foreground">
                       Email
                     </p>
-                    <p className="text-white">{selectedPayout.doctor.email}</p>
+                    <p className="text-black">{selectedPayout.doctor.email}</p>
                   </div>
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">
                       Specialty
                     </p>
-                    <p className="text-white">
+                    <p className="text-black">
                       {selectedPayout.doctor.specialty}
                     </p>
                   </div>
@@ -217,7 +217,7 @@ export function PendingPayouts({ payouts }) {
                     <p className="text-sm font-medium text-muted-foreground">
                       Current Credits
                     </p>
-                    <p className="text-white">
+                    <p className="text-black">
                       {selectedPayout.doctor.credits}
                     </p>
                   </div>
@@ -228,14 +228,14 @@ export function PendingPayouts({ payouts }) {
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <DollarSign className="h-5 w-5 text-emerald-400" />
-                  <h3 className="text-white font-medium">Payout Details</h3>
+                  <h3 className="text-black font-medium">Payout Details</h3>
                 </div>
                 <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20 space-y-3">
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">
                       Credits to pay out:
                     </span>
-                    <span className="text-white font-medium">
+                    <span className="text-black font-medium">
                       {selectedPayout.credits}
                     </span>
                   </div>
@@ -243,7 +243,7 @@ export function PendingPayouts({ payouts }) {
                     <span className="text-muted-foreground">
                       Gross amount (10 USD/credit):
                     </span>
-                    <span className="text-white">
+                    <span className="text-black">
                       ${selectedPayout.amount.toFixed(2)}
                     </span>
                   </div>
@@ -251,12 +251,12 @@ export function PendingPayouts({ payouts }) {
                     <span className="text-muted-foreground">
                       Platform fee (2 USD/credit):
                     </span>
-                    <span className="text-white">
+                    <span className="text-black">
                       -${selectedPayout.platformFee.toFixed(2)}
                     </span>
                   </div>
                   <div className="border-t border-emerald-900/20 pt-3 flex justify-between font-medium">
-                    <span className="text-white">Net payout:</span>
+                    <span className="text-black">Net payout:</span>
                     <span className="text-emerald-400">
                       ${selectedPayout.netAmount.toFixed(2)}
                     </span>
@@ -265,7 +265,7 @@ export function PendingPayouts({ payouts }) {
                     <p className="text-sm font-medium text-muted-foreground">
                       PayPal Email
                     </p>
-                    <p className="text-white">{selectedPayout.paypalEmail}</p>
+                    <p className="text-black">{selectedPayout.paypalEmail}</p>
                   </div>
                 </div>
               </div>
@@ -315,7 +315,7 @@ export function PendingPayouts({ payouts }) {
         >
           <DialogContent>
             <DialogHeader>
-              <DialogTitle className="text-xl font-bold text-white">
+              <DialogTitle className="text-xl font-bold text-black">
                 Confirm Payout Approval
               </DialogTitle>
               <DialogDescription>
@@ -342,7 +342,7 @@ export function PendingPayouts({ payouts }) {
               <div className="bg-muted/20 p-4 rounded-lg border border-emerald-900/20">
                 <div className="flex justify-between mb-2">
                   <span className="text-muted-foreground">Doctor:</span>
-                  <span className="text-white">
+                  <span className="text-black">
                     Dr. {selectedPayout.doctor.name}
                   </span>
                 </div>
@@ -354,7 +354,7 @@ export function PendingPayouts({ payouts }) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">PayPal:</span>
-                  <span className="text-white text-sm">
+                  <span className="text-black text-sm">
                     {selectedPayout.paypalEmail}
                   </span>
                 </div>

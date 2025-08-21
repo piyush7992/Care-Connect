@@ -23,7 +23,7 @@ export function DoctorCard({ doctor }) {
 
           <div className="flex-1">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
-              <h3 className="font-medium text-white text-lg">{doctor.name}</h3>
+              <h3 className="font-medium text-black text-lg">{doctor.name}</h3>
               <Badge
                 variant="outline"
                 className="bg-emerald-900/20 border-emerald-900/30 text-emerald-400 self-start"

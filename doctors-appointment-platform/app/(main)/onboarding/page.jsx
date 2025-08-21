@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import {
   Card,
   CardContent,
@@ -22,20 +23,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { setUserRole } from "@/actions/onboarding";
 import { doctorFormSchema } from "@/lib/schema";
 import { SPECIALTIES } from "@/lib/specialities";
 import useFetch from "@/hooks/use-fetch";
-import { useEffect } from "react";
 
 export default function OnboardingPage() {
   const [step, setStep] = useState("choose-role");
   const router = useRouter();
 
-  // Custom hook for user role server action
+  // Custom hook for calling server action
   const { loading, data, fn: submitUserRole } = useFetch(setUserRole);
 
-  // React Hook Form setup with Zod validation
+  // React Hook Form + Zod validation for doctor form
   const {
     register,
     handleSubmit,
@@ -52,26 +53,17 @@ export default function OnboardingPage() {
     },
   });
 
-  // Watch specialty value for controlled select component
   const specialtyValue = watch("specialty");
 
-  // Handle patient role selection
+  // Handle patient selection → directly send role
   const handlePatientSelection = async () => {
     if (loading) return;
-
     const formData = new FormData();
     formData.append("role", "PATIENT");
-
     await submitUserRole(formData);
   };
 
-  useEffect(() => {
-    if (data && data?.success) {
-      router.push(data.redirect);
-    }
-  }, [data]);
-
-  // Added missing onDoctorSubmit function
+  // Handle doctor form submit
   const onDoctorSubmit = async (data) => {
     if (loading) return;
 
@@ -85,10 +77,18 @@ export default function OnboardingPage() {
     await submitUserRole(formData);
   };
 
-  // Role selection screen
+  // Redirect after successful role submission
+  useEffect(() => {
+    if (data?.success && data.redirect) {
+      router.push(data.redirect);
+    }
+  }, [data, router]);
+
+  // STEP 1: Role selection
   if (step === "choose-role") {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Patient Card */}
         <Card
           className="border-emerald-900/20 hover:border-emerald-700/40 cursor-pointer transition-all"
           onClick={() => !loading && handlePatientSelection()}
@@ -97,12 +97,11 @@ export default function OnboardingPage() {
             <div className="p-4 bg-emerald-900/20 rounded-full mb-4">
               <User className="h-8 w-8 text-emerald-400" />
             </div>
-            <CardTitle className="text-xl font-semibold text-white mb-2">
+            <CardTitle className="text-xl font-semibold text-black mb-2">
               Join as a Patient
             </CardTitle>
             <CardDescription className="mb-4">
-              Book appointments, consult with doctors, and manage your
-              healthcare journey
+              Book appointments, consult with doctors, and manage your healthcare journey
             </CardDescription>
             <Button
               className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
@@ -120,6 +119,7 @@ export default function OnboardingPage() {
           </CardContent>
         </Card>
 
+        {/* Doctor Card */}
         <Card
           className="border-emerald-900/20 hover:border-emerald-700/40 cursor-pointer transition-all"
           onClick={() => !loading && setStep("doctor-form")}
@@ -128,12 +128,11 @@ export default function OnboardingPage() {
             <div className="p-4 bg-emerald-900/20 rounded-full mb-4">
               <Stethoscope className="h-8 w-8 text-emerald-400" />
             </div>
-            <CardTitle className="text-xl font-semibold text-white mb-2">
+            <CardTitle className="text-xl font-semibold text-black mb-2">
               Join as a Doctor
             </CardTitle>
             <CardDescription className="mb-4">
-              Create your professional profile, set your availability, and
-              provide consultations
+              Create your professional profile, set your availability, and provide consultations
             </CardDescription>
             <Button
               className="w-full mt-2 bg-emerald-600 hover:bg-emerald-700"
@@ -147,13 +146,13 @@ export default function OnboardingPage() {
     );
   }
 
-  // Doctor registration form
+  // STEP 2: Doctor form
   if (step === "doctor-form") {
     return (
       <Card className="border-emerald-900/20">
         <CardContent className="pt-6">
           <div className="mb-6">
-            <CardTitle className="text-2xl font-bold text-white mb-2">
+            <CardTitle className="text-2xl font-bold text-black mb-2">
               Complete Your Doctor Profile
             </CardTitle>
             <CardDescription>
@@ -162,6 +161,7 @@ export default function OnboardingPage() {
           </div>
 
           <form onSubmit={handleSubmit(onDoctorSubmit)} className="space-y-6">
+            {/* Specialty */}
             <div className="space-y-2">
               <Label htmlFor="specialty">Medical Specialty</Label>
               <Select
@@ -191,6 +191,7 @@ export default function OnboardingPage() {
               )}
             </div>
 
+            {/* Experience */}
             <div className="space-y-2">
               <Label htmlFor="experience">Years of Experience</Label>
               <Input
@@ -206,6 +207,7 @@ export default function OnboardingPage() {
               )}
             </div>
 
+            {/* Credential URL */}
             <div className="space-y-2">
               <Label htmlFor="credentialUrl">Link to Credential Document</Label>
               <Input
@@ -224,6 +226,7 @@ export default function OnboardingPage() {
               </p>
             </div>
 
+            {/* Description */}
             <div className="space-y-2">
               <Label htmlFor="description">Description of Your Services</Label>
               <Textarea
@@ -239,6 +242,7 @@ export default function OnboardingPage() {
               )}
             </div>
 
+            {/* Buttons */}
             <div className="pt-2 flex items-center justify-between">
               <Button
                 type="button"
@@ -269,4 +273,6 @@ export default function OnboardingPage() {
       </Card>
     );
   }
+
+  return null;
 }

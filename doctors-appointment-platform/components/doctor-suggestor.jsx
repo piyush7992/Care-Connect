@@ -25,7 +25,7 @@ export default function DoctorSuggestor() {
       />
       <button
         onClick={handleSuggest}
-        className="mt-2 bg-blue-600 text-white px-4 py-2 rounded"
+        className="mt-2 bg-blue-600 text-black px-4 py-2 rounded"
       >
         Suggest Doctor
       </button>
