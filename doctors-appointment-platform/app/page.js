@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Stethoscope } from "lucide-react";
@@ -6,8 +7,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Pricing from "@/components/pricing";
 import { creditBenefits, features, testimonials } from "@/lib/data";
-
+import React, { useState } from "react";
 export default function Home() {
+  const [selectedFeature, setSelectedFeature] = useState(null);
   return (
     <div className="bg-background">
       {/* Hero Section */}
@@ -17,7 +19,7 @@ export default function Home() {
             <div className="space-y-8">
               <Badge
                 variant="outline"
-                className="bg-emerald-900/30 border-emerald-700/30 px-4 py-2 text-emerald-400 text-sm font-medium"
+                className="bg-emerald-700 border-emerald-700 px-4 py-2 text-black text-sm font-medium"
               >
                 Healthcare made simple with CareConnect
               </Badge>
@@ -114,22 +116,21 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-20 bg-muted/30 relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
-              How It Works
+              Healthcare and Wellness Education Modules
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Our platform makes healthcare accessible with just a few clicks
-            </p>
           </div>
 
+          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Card
                 key={index}
-                className="bg-card border-emerald-900/20 hover:border-emerald-800/40 transition-all duration-300"
+                onClick={() => setSelectedFeature(feature)}
+                className="cursor-pointer bg-card border-emerald-900/20 hover:border-emerald-800/40 transition-all duration-300"
               >
                 <CardHeader className="pb-2">
                   <div className="bg-emerald-900/20 p-3 rounded-lg w-fit mb-4">
@@ -146,15 +147,44 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        {/* Floating Modal Overlay */}
+        {selectedFeature && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+            <Card className="w-[400px] relative max-h-[80vh] overflow-y-auto">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="absolute top-2 right-2"
+                onClick={() => setSelectedFeature(null)}
+              >
+                ✕
+              </Button>
+              <CardHeader>
+                <div className="bg-emerald-900/20 p-3 rounded-lg w-fit mb-4">
+                  {selectedFeature.icon}
+                </div>
+                <CardTitle className="text-xl font-semibold text-black">
+                  {selectedFeature.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  {selectedFeature.details ?? selectedFeature.description}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        )}
       </section>
 
       {/* Pricing Section with green medical styling */}
-      <section id="pricing" className="py-20">
+      {/* <section id="pricing" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <Badge
               variant="outline"
-              className="bg-emerald-900/30 border-emerald-700/30 px-4 py-1 text-emerald-400 text-sm font-medium mb-4"
+              className="bg-emerald-700 border-emerald-700 px-4 py-1 text-black text-sm font-medium mb-4"
             >
               Affordable Healthcare
             </Badge>
@@ -167,12 +197,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mx-auto">
-            {/* Clerk Pricing Table */}
-            {/* <Pricing /> */}
+          <div className="mx-auto"> */}
+      {/* Clerk Pricing Table */}
+      {/* <Pricing /> */}
 
-            {/* Description */}
-            <Card className="mt-12 bg-muted/20 border-emerald-900/30">
+      {/* Description */}
+      {/* <Card className="mt-12 bg-muted/20 border-emerald-900/30">
               <CardHeader>
                 <CardTitle className="text-xl font-semibold text-black flex items-center">
                   <Stethoscope className="h-5 w-5 mr-2 text-emerald-400" />
@@ -210,7 +240,7 @@ export default function Home() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials with green medical accents */}
       <section className="py-20 bg-muted/30">
@@ -218,7 +248,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <Badge
               variant="outline"
-              className="bg-emerald-900/30 border-emerald-700/30 px-4 py-1 text-emerald-400 text-sm font-medium mb-4"
+              className="bg-emerald-700 border-emerald-700 px-4 py-1 text-black text-sm font-medium mb-4"
             >
               Success Stories
             </Badge>
@@ -284,14 +314,14 @@ export default function Home() {
                   >
                     <Link href="/sign-up">Sign Up Now</Link>
                   </Button>
-                  <Button
+                  {/* <Button
                     asChild
                     variant="outline"
                     size="lg"
                     className="border-emerald-700/30 hover:bg-muted/80"
                   >
                     <Link href="#pricing">View Pricing</Link>
-                  </Button>
+                  </Button> */}
                 </div>
               </div>
 

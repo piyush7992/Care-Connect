@@ -66,6 +66,7 @@ export default function OrgVolOnboardingPage() {
     payload.append("contactNumber", formData.orgContactNumber);
     payload.append("address", formData.orgAddress);
     await submitRole(payload);
+    router.push("/dashboard");
   };
 
   const onVolunteerSubmit = async (formData) => {
@@ -76,6 +77,7 @@ export default function OrgVolOnboardingPage() {
     payload.append("languages", formData.volLanguages);
     payload.append("experienceLevel", formData.volExperienceLevel);
     await submitRole(payload);
+    router.push("/dashboard");
   };
 
   if (!isLoaded || !user) {

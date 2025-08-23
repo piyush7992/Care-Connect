@@ -22,6 +22,7 @@
     "@radix-ui/react-separator": "^1.1.6",
     "@radix-ui/react-slot": "^1.2.2",
     "@radix-ui/react-tabs": "^1.1.11",
+    "@react-oauth/google": "^0.12.2",
     "@vapi-ai/web": "^2.3.8",
     "@vonage/auth": "^1.12.0",
     "@vonage/client-sdk-video": "^2.30.0",
@@ -31,6 +32,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "jspdf": "^3.0.1",
+    "jwt-decode": "^4.0.0",
     "lucide-react": "^0.510.0",
     "next": "^15.4.2-canary.51",
     "next-themes": "^0.4.6",
@@ -39,6 +41,7 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.3",
     "react-spinners": "^0.17.0",
+    "recharts": "^3.1.2",
     "sonner": "^2.0.3",
     "tailwind-merge": "^3.3.0",
     "zod": "^3.24.4"

@@ -69,6 +69,20 @@ export default async function Header() {
             )}
 
             {/* Patient Links */}
+            {/* <Link href="/google-fit">Connect to Goggle-fit</Link> */}
+            <Link href="/google-fit">
+                <Button
+                  variant="outline"
+                  className="hidden md:inline-flex items-center gap-2"
+                >
+                  <Calendar className="h-4 w-4" />
+                  Health Tracker
+                </Button>
+                <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                  <Calendar className="h-4 w-4" />
+                </Button>
+              </Link>
+            
             {user?.role === "PATIENT" && (
               <Link href="/appointments">
                 <Button
@@ -99,9 +113,24 @@ export default async function Header() {
                 </Button>
               </Link>
             )}
+            {/* Organization Role */}
+            {user?.role === "ORGANIZATION" && (
+              <Link href="/listingform">
+                <Button
+                  variant="outline"
+                  className="hidden md:inline-flex items-center gap-2"
+                >
+                  <User className="h-4 w-4" />
+                  Enlist your event
+                </Button>
+                <Button variant="ghost" className="md:hidden w-10 h-10 p-0">
+                  <User className="h-4 w-4" />
+                </Button>
+              </Link>
+            )}
           </SignedIn>
 
-          {(!user || user?.role !== "ADMIN") && (
+          {/* {(!user || user?.role !== "ADMIN") && (
             <Link href={user?.role === "PATIENT" ? "/pricing" : "/doctor"}>
               <Badge
                 variant="outline"
@@ -124,7 +153,7 @@ export default async function Header() {
                 </span>
               </Badge>
             </Link>
-          )}
+          )} */}
 
           <SignedOut>
             <SignInButton>

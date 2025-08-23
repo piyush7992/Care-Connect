@@ -1,49 +1,48 @@
-import {
-  Calendar,
-  Video,
-  CreditCard,
-  User,
-  FileText,
-  ShieldCheck,
-} from "lucide-react";
-
+import { ShowerHead, Bike, BedDouble, User, Baby, Brain } from "lucide-react";
 // JSON data for features
 export const features = [
   {
     icon: <User className="h-6 w-6 text-emerald-400" />,
-    title: "Create Your Profile",
+    title: "Nutrition & Healthy Eating",
     description:
-      "Sign up and complete your profile to get personalized healthcare recommendations and services.",
+      "Focuses on balanced diets, understanding food labels, and making healthy food choices.",
+    details:
+      "IntroductionNutrition is the foundation of good health. The food we eat directly impacts our energy levels, growth, immunity, and even mental well-being. A poor diet is linked to chronic diseases such as diabetes, obesity, heart disease, and even certain cancers. On the other hand, a balanced diet can improve our productivity, help us stay active, and enhance our quality of life. Nutrition is not just about calories—it’s about providing the body with the right mix of macronutrients (carbohydrates, proteins, and fats) and micronutrients (vitamins and minerals).Balanced Diet & Food Groups.A healthy plate typically includes:Carbohydrates (50–60%): Foods like rice, whole wheat, oats, and potatoes provide energy. Choosing whole grains over refined ones ensures better digestion and prevents sudden spikes in blood sugar.Proteins (15–20%): Sources include pulses, lentils, eggs, dairy, fish, and meat. Proteins are essential for building muscles, repairing tissues, and supporting immunity.Healthy Fats (20–25%): Nuts, seeds, olive oil, and fish provide good fats that are necessary for brain function and hormone balance.Fruits & Vegetables: These provide vitamins, minerals, and fiber that protect against diseases. Experts recommend at least five servings per day.Water: Often overlooked, but staying hydrated improves metabolism, digestion, and skin health.Micronutrients & Their Importance Micronutrients are needed in small amounts but play a huge role in maintaining health:Iron prevents anemia and fatigue.Calcium & Vitamin D strengthen bones.Vitamin A improves eyesight and immunity.Iodine prevents goiter.Deficiencies in these nutrients are common in many communities, leading to preventable health problems.Nutrition Across the LifespanNutritional needs change with age:Children require more protein and calcium for growth.Adolescents need iron (especially girls), protein, and energy to support rapid changes.Adults should focus on balanced portions and limiting excess sugar, salt, and fat.Elderly need nutrient-dense foods and adequate hydration, as appetite and absorption reduce with age.Preventing Malnutrition and Obesity.Malnutrition is not just about being underweight; it also includes being overweight due to poor-quality diets. ",
   },
   {
-    icon: <Calendar className="h-6 w-6 text-emerald-400" />,
-    title: "Book Appointments",
+    icon: <Bike className="h-6 w-6 text-emerald-400" />,
+    title: "Exercise & Fitness",
     description:
-      "Browse doctor profiles, check availability, and book appointments that fit your schedule.",
+      "Promotes physical activity, regular exercise, and maintaining a healthy weight.",
+    details: "",
   },
   {
-    icon: <Video className="h-6 w-6 text-emerald-400" />,
-    title: "Video Consultation",
+    icon: <ShowerHead className="h-6 w-6 text-emerald-400" />,
+    title: "Personal Hygiene & Sanitation",
     description:
-      "Connect with doctors through secure, high-quality video consultations from the comfort of your home.",
+      "Focuses on handwashing, dental care, and general cleanliness to prevent infections.",
+    details: "",
   },
   {
-    icon: <CreditCard className="h-6 w-6 text-emerald-400" />,
-    title: "Consultation Credits",
+    icon: <BedDouble className="h-6 w-6 text-emerald-400" />,
+    title: "Reproductive & Sexual Health",
     description:
-      "Purchase credit packages that fit your healthcare needs with our simple subscription model.",
+      "Includes family planning, sexual health education, and reproductive rights.",
+    details: "",
   },
   {
-    icon: <ShieldCheck className="h-6 w-6 text-emerald-400" />,
-    title: "Verified Doctors",
+    icon: <Brain className="h-6 w-6 text-emerald-400" />,
+    title: "Mental Well-being",
     description:
-      "All healthcare providers are carefully vetted and verified to ensure quality care.",
+      "Focuses on stress management, mental health awareness, and emotional support.",
+    details: "",
   },
   {
-    icon: <FileText className="h-6 w-6 text-emerald-400" />,
-    title: "Medical Documentation",
+    icon: <Baby className="h-6 w-6 text-emerald-400" />,
+    title: "Maternal & Child Health",
     description:
-      "Access and manage your appointment history, doctor's notes, and medical recommendations.",
+      "Covers prenatal care, childbirth education, and child nutrition.",
+    details: "",
   },
 ];
 
